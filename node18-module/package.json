@@ -1,0 +1,36 @@
+{
+  "name": "node18-module",
+  "version": "1.0.0",
+  "description": "Base NodeJS template",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix .",
+    "test": "npm run lint && npm run test:only",
+    "test:only": "c8 mocha --config .mocharc.cjs",
+    "test:watch": "nodemon --exec mocha --bail",
+    "gendocs": "jsdoc -d docs index.js \"src/**/*.js\" && jsdoc2md index.js \"src/**/*.js\" > api.md",
+    "depcheck": "depcheck . --ignores=\"mocha-jenkins-reporter\""
+  },
+  "author": "",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "dotenv": "^16.0.3"
+  },
+  "devDependencies": {
+    "@sunrun/eslint-config-sunrun": "^2.0.0",
+    "c8": "^7.13.0",
+    "chai": "^4.3.7",
+    "depcheck": "^1.4.3",
+    "eslint": "^8.40.0",
+    "jsdoc": "^4.0.2",
+    "jsdoc-to-markdown": "^8.0.0",
+    "mocha": "^10.2.0",
+    "mocha-eslint": "^7.0.0",
+    "mocha-jenkins-reporter": "^0.4.8",
+    "nodemon": "^2.0.22",
+    "sinon": "^15.0.4",
+    "sinon-chai": "^3.7.0"
+  }
+}

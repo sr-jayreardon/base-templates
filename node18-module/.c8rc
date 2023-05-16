@@ -1,0 +1,26 @@
+{
+  "branches": 50,
+  "lines": 50,
+  "functions": 50,
+  "statements": 50,
+  "check-coverage": true,
+  "reporter": [
+    "cobertura",
+    "json",
+    "lcovonly",
+    "text",
+    "text-summary",
+    "html"
+  ],
+  "report-dir": "./target",
+  "all": true,
+  "include": [
+    "index.js",
+    "src/**/*.js",
+    "src/**.*.cjs"
+  ],
+  "exclude": [
+    "**/*.spec.js",
+    "**/*.spec.cjs"
+  ]
+}

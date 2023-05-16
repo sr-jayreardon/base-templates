@@ -1,0 +1,16 @@
+{
+  "extends": "@sunrun/eslint-config-sunrun",
+  "ignorePatterns": ["**/docs/**/*.js", "test/devOnly/**/*.js"],
+  "rules": {
+    "import/named": "off",
+    "object-shorthand": "off"
+  },
+  "overrides": [
+    {
+      "parserOptions": {
+        "ecmaVersion": "latest"
+      },
+      "files": ["index.js", "src/**/*.js"]
+    }
+  ]
+}
