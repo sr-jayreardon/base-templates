@@ -1,0 +1,24 @@
+name: Test package [Push]
+
+on:
+  push:
+    branches:
+      - !master
+
+jobs:
+  node-test-module:
+    name: 'Test Node Module'
+    runs-on: ubuntu-latest
+    steps:
+      - name: 'Checkout'
+        uses: actions/checkout@master
+
+      - name: 'Setup Node'
+        uses: SunRun/github-actions-templates/composite/setup-node@master
+        with:
+          npm_auth_token: ${{ secrets.NPM_TOKEN }}
+
+      - name: 'Test Node'
+        uses: Sunrun/github-actions-templates/composite/test-node@master
+        with:
+          npm_auth_token: ${{ secrets.NPM_TOKEN }}

@@ -1,0 +1,29 @@
+name: Master build
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  publish-module:
+    name: 'Build and Publish Module'
+    runs-on: ubuntu-latest
+    steps:
+      - name: 'Checkout'
+        uses: actions/checkout@master
+
+      - name: 'Setup Node'
+        uses: SunRun/github-actions-templates/composite/setup-node@master
+        with:
+          npm_auth_token: ${{ secrets.NPM_TOKEN }}
+
+      - name: 'Test Node'
+        uses: Sunrun/github-actions-templates/composite/test-node@master
+        with:
+          npm_auth_token: ${{ secrets.NPM_TOKEN }}
+
+      - name: 'NPM Publish'
+        uses: Sunrun/github-actions-templates/composite/publish-npm-module@master
+        with:
+          npm_auth_token: ${{ secrets.NPM_TOKEN }}
